@@ -2,7 +2,6 @@
 
 #[ink::contract]
 mod hello_world {
-    // Bring String into scope for no_std
     use ink::prelude::string::String;
 
     #[ink(storage)]
@@ -17,8 +16,15 @@ mod hello_world {
 
         /// Message function to return "Hello World"
         #[ink(message)]
-        pub fn hello_world(&self) -> String {
+        pub fn say_hello(&self) -> String {
             String::from("Hello World")
+        }
+    }
+
+    /// Implement Default for convenience
+    impl Default for HelloWorld {
+        fn default() -> Self {
+            Self::new()
         }
     }
 
@@ -28,7 +34,7 @@ mod hello_world {
 
         #[ink::test]
         fn it_says_hello() {
-            let contract = HelloWorld::new();
+            let contract = HelloWorld::default();
             assert_eq!(contract.say_hello(), "Hello World");
         }
     }
