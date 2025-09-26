@@ -17,7 +17,7 @@ mod hello_world {
 
         /// Message function to return "Hello World"
         #[ink(message)]
-        pub fn say_hello(&self) -> String {
+        pub fn hello_world(&self) -> String {
             String::from("Hello World")
         }
     }
