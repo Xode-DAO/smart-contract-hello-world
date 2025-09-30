@@ -16,7 +16,7 @@ mod hello_world {
 
         /// Message function to return "Hello World"
         #[ink(message)]
-        pub fn say_hello(&self) -> String {
+        pub fn sayHelloWorld(&self) -> String {
             String::from("Hello World")
         }
     }
@@ -29,13 +29,13 @@ mod hello_world {
     }
 
     #[cfg(test)]
-    mod tests {
+    mod tests { 
         use super::*;
 
         #[ink::test]
         fn it_says_hello() {
             let contract = HelloWorld::default();
-            assert_eq!(contract.say_hello(), "Hello World");
+            assert_eq!(contract.sayHelloWorld(), "Hello World");
         }
     }
 }
